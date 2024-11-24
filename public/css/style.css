@@ -1,0 +1,27 @@
+.roboto {
+    font-family: "Roboto", sans-serif !important;
+}
+
+.w-35 {
+    width: 35% !important;
+}
+
+.colorWhite {
+    color: var(--secondary-color) !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.decorationNone {
+    text-decoration: none;
+}
+
+:root {
+    --primary-color-darker: #000000;
+    --primary-color-medium: #1A1A1D;
+    --primary-color-lighter: #383535;
+
+    --secondary-color: white;
+} 
