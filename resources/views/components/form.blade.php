@@ -1,8 +1,11 @@
 <form action="{{ route($route) }}" method="{{ $method }}" 
     class="h-auto defaultForm {{ $class }}"
+    onsubmit="login(event)"
 >
     {{ $slot }}
 </form>
+
+<script src="{{ asset('js/form/form.js') }}"></script>
 
 <style>
     .defaultForm {

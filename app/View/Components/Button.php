@@ -12,7 +12,8 @@ class Button extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $type="submit"
+        public string $type="submit",
+        public string $actions=""
     )
     {
         //

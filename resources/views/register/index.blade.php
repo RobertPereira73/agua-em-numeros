@@ -9,9 +9,7 @@
 
 @section('content')
     <div class="vh-100 d-flex justify-content-center align-items-center">
-        <x-form route="login" class="w-35">
-            @csrf
-
+        <x-form route="register" class="w-35">
             <div class="mb-5 d-flex flex-column justify-content-center align-items-center">
                 <img src="{{ asset('images/logo-3.png') }}" alt=""
                     class="w-50"
@@ -54,7 +52,7 @@
 
             <div class="row">
                 <div class="col-12 mb-3 d-flex flex-column">
-                    <x-input name="password_confirmed" placeHolder="Confirme a senha" type="password"/>
+                    <x-input name="password_confirmation" placeHolder="Confirme a senha" type="password"/>
                 </div>
             </div>
 
