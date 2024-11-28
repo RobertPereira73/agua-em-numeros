@@ -6,15 +6,12 @@ use Closure;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
-class Button extends Component
+class Header extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(
-        public string $type="submit",
-        public string $class="bg-primary"
-    )
+    public function __construct()
     {
         //
     }
@@ -24,6 +21,6 @@ class Button extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.button');
+        return view('components.header');
     }
 }

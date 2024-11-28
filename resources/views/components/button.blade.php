@@ -1,3 +1,3 @@
-<button type="{{ $type }}" class="btn defaultButton bg-primary w-100 roboto colorWhite" {{ $actions }}>
+<button type="{{ $type }}" class="btn defaultButton w-100 roboto colorWhite {{ $class }}">
     {{ $slot }}
 </button>

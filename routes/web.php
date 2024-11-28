@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
@@ -33,10 +34,9 @@ Route::prefix('register')->name('register')->group(function () {
 });
 
 Route::middleware([Authenticate::class])->group(function () {
-    Route::get('/dashboard', function () {
-        return "ok ok ok ok ok test :|";
-    })
-    ->name('dashboard');
+    Route::prefix('/dashboard')->name('dashboard')->group(function () {
+        Route::get('/', [DashboardController::class, 'index']);
+    });
 
     Route::get('/logout', [LogoutController::class, 'logout']);
 });

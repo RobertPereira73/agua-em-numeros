@@ -18,6 +18,18 @@
     text-decoration: none;
 }
 
+.bgPrimaryMd {
+    background: var(--primary-color-medium) !important;
+}
+
+.bgPrimaryLt {
+    background: var(--primary-color-lighter) !important;
+}
+
+.font12 {
+    font-size: 12px;
+}
+
 :root {
     --primary-color-darker: #000000;
     --primary-color-medium: #1A1A1D;
