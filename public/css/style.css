@@ -30,6 +30,10 @@
     font-size: 12px;
 }
 
+.borderRadius {
+    border-radius: 5px;
+}
+
 :root {
     --primary-color-darker: #000000;
     --primary-color-medium: #1A1A1D;

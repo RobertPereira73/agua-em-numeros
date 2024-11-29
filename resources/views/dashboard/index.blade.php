@@ -33,15 +33,50 @@
         </div>
 
         <div class="col-6 colorWhite">
-            <h1>grafico</h1>
+            <div class="w-100 h-100 bgPrimaryMd borderRadius">
+                <h1>grafico</h1>
+            </div>
         </div>
     </div>
 
-    <div class="w-100 d-flex mt-3">
-        <div class="col-8 bgPrimaryMd tableUsers p-2">
-            <p class="colorWhite roboto">Usuário com mais commits</p>
+    <div class="row mt-4">
+        <div class="col-8">
+            <div class="w-100 bgPrimaryMd p-3 tableUsers">
+                <p class="colorWhite roboto">Top usuários</p>
+    
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td class="colorWhite roboto bold font12">Usuario</td>
+                            <td class="colorWhite roboto bold font12">Repositórios</td>
+                            <td class="colorWhite roboto bold font12">Commits</td>
+                            <td class="colorWhite roboto bold font12">Comments</td>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        <tr>
+                            <td class="colorWhite roboto bold font12">Teste</td>
+                            <td class="colorWhite roboto bold font12">1</td>
+                            <td class="colorWhite roboto bold font12">1</td>
+                            <td class="colorWhite roboto bold font12">1</td>
+                        </tr>
+    
+                        <tr>
+                            <td class="colorWhite roboto bold font12">Teste 2</td>
+                            <td class="colorWhite roboto bold font12">2</td>
+                            <td class="colorWhite roboto bold font12">2</td>
+                            <td class="colorWhite roboto bold font12">2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-
+        <div class="col-4">
+            <div class="w-100 h-100 bgPrimaryMd p-3 borderRadius">
+                <p class="colorWhite">Grafico de pizza com tipos de eventos</p>
+            </div>
         </div>
     </div>
 
