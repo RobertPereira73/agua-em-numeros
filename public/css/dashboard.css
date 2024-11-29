@@ -1,3 +1,7 @@
 .tableUsers {
     border-radius: 5px;
 }
+
+.dropdown-toggle-split::after {
+    display: none !important;
+}

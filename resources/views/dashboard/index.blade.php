@@ -5,6 +5,8 @@
 @section('links')
     @parent
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+    <script src="{{ asset('js/dashboard/dashboard.js') }}"></script>
 @endsection
 
 @section('content')
@@ -33,14 +35,13 @@
         </div>
 
         <div class="col-6 colorWhite">
-            <div class="w-100 h-100 bgPrimaryMd borderRadius">
-                <h1>grafico</h1>
+            <div id="main" class="w-100 h-100 bgPrimaryMd borderRadius">
             </div>
         </div>
     </div>
 
     <div class="row mt-4">
-        <div class="col-8">
+        <div class="col-7">
             <div class="w-100 bgPrimaryMd p-3 tableUsers">
                 <p class="colorWhite roboto">Top usuários</p>
     
@@ -73,9 +74,9 @@
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-5">
             <div class="w-100 h-100 bgPrimaryMd p-3 borderRadius">
-                <p class="colorWhite">Grafico de pizza com tipos de eventos</p>
+                <div id="pizzaChart" class="w-100 h-100"></div>
             </div>
         </div>
     </div>

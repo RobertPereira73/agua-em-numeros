@@ -34,6 +34,16 @@
     border-radius: 5px;
 }
 
+.bgNone {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.hidden {
+    display: none;
+}
+
 :root {
     --primary-color-darker: #000000;
     --primary-color-medium: #1A1A1D;

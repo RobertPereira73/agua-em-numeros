@@ -3,7 +3,7 @@ async function sendData(url, config) {
         let request = await fetch(url, config);
         let response = await request.json();
     
-        return response;
+        return response.message;
     } catch (error) {
         console.log(error);
     }
@@ -24,4 +24,8 @@ function configObj(method, body={}) {
 
 function metaToken() {
     return document.querySelector('meta[name="_token"]').content;
+}
+
+function formData() {
+    return new FormData();
 }

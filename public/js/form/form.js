@@ -1,4 +1,4 @@
-async function login(event) {
+async function send(event) {
     event.preventDefault();
 
     let form = event.target;
@@ -6,5 +6,6 @@ async function login(event) {
     let config = configObj(form.method, formData);
     let response = await sendData(form.action, config);
 
+    // return console.log(response);
     window.location = '/dashboard';
 }

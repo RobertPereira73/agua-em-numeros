@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -38,5 +39,11 @@ Route::middleware([Authenticate::class])->group(function () {
         Route::get('/', [DashboardController::class, 'index']);
     });
 
-    Route::get('/logout', [LogoutController::class, 'logout']);
+    Route::prefix('/meu-perfil')->name('account')->group(function () {
+        Route::get('/', [AccountController::class, 'index']);
+        Route::post('/', [AccountController::class, 'update']);
+        Route::post('/check-password', [AccountController::class, 'checkPassword'])->name('checkPassword');
+    });
+
+    Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 });

@@ -1,8 +1,10 @@
-<input type="text" 
+<input
     name="{{ $name }}"
     placeholder="{{ $placeHolder }}"
     type="{{ $type }}"
+    value="{{ $value }}"
     class="form-control defaultInput roboto colorWhite {{ $class }}"
+    {{ $events }}
 >
 
 <style>

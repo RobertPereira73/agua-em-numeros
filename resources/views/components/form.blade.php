@@ -1,6 +1,6 @@
 <form action="{{ route($route) }}" method="{{ $method }}" 
     class="h-auto defaultForm {{ $class }}"
-    onsubmit="login(event)"
+    onsubmit="send(event)"
 >
     {{ $slot }}
 </form>
