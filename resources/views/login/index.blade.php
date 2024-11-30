@@ -30,13 +30,13 @@
                 </p>
             </div>
 
-            <div class="col-12 mb-3 d-flex flex-column">
+            <x-container-input :name="'email'">
                 <x-input name="email" placeHolder="Email" type="email"/>
-            </div>
+            </x-container-input>
 
-            <div class="mb-3 d-flex flex-column">
+            <x-container-input :name="'password'">
                 <x-input name="password" placeHolder="Senha" type="password"/>
-            </div>
+            </x-container-input>
 
             <x-button>
                 Entrar

@@ -6,6 +6,9 @@ async function send(event) {
     let config = configObj(form.method, formData);
     let response = await sendData(form.action, config);
 
-    // return console.log(response);
+    if (!response) {
+        return;
+    }
+
     window.location = '/dashboard';
 }

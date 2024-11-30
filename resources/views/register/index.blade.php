@@ -24,35 +24,25 @@
 
             <x-select-avatar :class="'mb-5'"/>
 
-            <div class="row mb-3">
-                <div class="col-12 d-flex flex-column">
-                    <x-input name="nome" placeHolder="Nome" type="text"/>
-                </div>
-            </div>
+            <x-container-input :name="'nome'">
+                <x-input name="nome" placeHolder="Nome" type="text"/>
+            </x-container-input>
 
-            <div class="row mb-3">
-                <div class="col-12 d-flex flex-column">
-                    <x-input name="sobrenome" placeHolder="Sobrenome" type="text"/>
-                </div>
-            </div>
+            <x-container-input :name="'sobrenome'">
+                <x-input name="sobrenome" placeHolder="Sobrenome" type="text"/>
+            </x-container-input>
 
-            <div class="row mb-3">
-                <div class="col-12 d-flex flex-column">
-                    <x-input name="email" placeHolder="Email" type="email"/>
-                </div>
-            </div>
+            <x-container-input :name="'email'">
+                <x-input name="email" placeHolder="Email" type="email"/>
+            </x-container-input>
 
-            <div class="row mb-3">
-                <div class="col-12 d-flex flex-column">
-                    <x-input name="password" placeHolder="Senha" type="password"/>
-                </div>
-            </div>
+            <x-container-input :name="'password'">
+                <x-input name="password" placeHolder="Senha" type="password"/>
+            </x-container-input>
 
-            <div class="row mb-3">
-                <div class="col-12 d-flex flex-column">
-                    <x-input name="password_confirmation" placeHolder="Confirme a senha" type="password"/>
-                </div>
-            </div>
+            <x-container-input :name="'password_confirmation'">
+                <x-input name="password_confirmation" placeHolder="Confirme a senha" type="password"/>
+            </x-container-input>
 
             <x-button>
                 Salvar

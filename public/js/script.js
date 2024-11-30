@@ -3,10 +3,52 @@ async function sendData(url, config) {
         let request = await fetch(url, config);
         let response = await request.json();
     
-        return response.message;
+        return returnResponse(response);
     } catch (error) {
         console.log(error);
+        return;
     }
+}
+
+function returnResponse(response) {
+    let errors = Object.values(response?.errors ?? {});
+    if (errors?.length) {
+        clearErrors();
+        showErrors(response?.errors);
+        return false;
+    }
+
+    return response.message;
+}
+
+function clearErrors() {
+    let containerErros = document.querySelectorAll('.containerError');
+    containerErros.forEach(container => container.innerHTML = '');    
+}
+
+function showErrors(errors) {
+    for (let index in errors) {
+        let errorList = errors[index];
+        let errorContainerElement = containerError(index);
+        if (!errorContainerElement) continue;
+
+        errorList.forEach(error => {
+            let spanError = createSpanError(error);
+            errorContainerElement.appendChild(spanError);
+        });
+    }
+}
+
+function createSpanError(message) {
+    let span = document.createElement('span');
+    span.className = "roboto font12"
+    span.innerText = message;
+
+    return span;
+}
+
+function containerError(index) {
+    return document.querySelector(`#${index}Errors`);
 }
 
 function configObj(method, body={}) {

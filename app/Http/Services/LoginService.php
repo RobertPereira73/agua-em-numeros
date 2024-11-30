@@ -12,13 +12,13 @@ class LoginService
     {
         $user = User::userByEmail($email);
         if (!$this->validatePassword($password, $user->password)) {
-            ValidateException::throwException('Senha', ['Senha incorreta!']);
+            ValidateException::throwException('password', ['Senha incorreta!']);
         }
 
         $this->login($user);
     }
 
-    public function validatePassword(string $requestPassword, string $userPassword) : bool
+    public function validatePassword(?string $requestPassword, string $userPassword) : bool
     {
         return Hash::check($requestPassword, $userPassword);
     }

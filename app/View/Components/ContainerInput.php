@@ -6,12 +6,15 @@ use Closure;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
-class Header extends Component
+class ContainerInput extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(
+        public string $name='',
+        public string $class=''
+    )
     {
         //
     }
@@ -21,7 +24,6 @@ class Header extends Component
      */
     public function render(): View|Closure|string
     {
-        $userName = auth()->user()->name;
-        return view('components.header', ['userName' => $userName]);
+        return view('components.container-input');
     }
 }

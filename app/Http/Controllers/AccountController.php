@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ValidateException;
 use App\Http\Controllers\Controller;
 use App\Http\Services\LoginService;
 use App\Http\Services\RegisterService;
@@ -45,9 +46,22 @@ class AccountController extends Controller
             ]
         );
 
-        return $this->registerService->register($this->request->all());
+        $values = $this->request->all();
 
-        return $this->request;
+        $requestPassword = $values['oldPassword'];
+        $userPassword = auth()->user()->password;
+
+        if (
+            isset($requestPassword)
+            && !$this->loginService->validatePassword($requestPassword, $userPassword)
+        ) {
+            ValidateException::throwException('oldPassword', ['Senha incorreta!']);
+        }   
+
+
+        $this->registerService->register($values);
+
+        return response(['message' => true]);
     }
 
     public function checkPassword()  : \Illuminate\Http\Response | \Illuminate\Contracts\Routing\ResponseFactory

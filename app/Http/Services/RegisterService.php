@@ -9,23 +9,19 @@ class RegisterService
 {
     public function register(array $values) : User
     {
-        $user = User::firstOrNew(
-            [
-                'id' => $values['id'] ?? null
-            ],
-            [
-                'name' => $values['nome'],
-                'middle_name' => $values['sobrenome'],
-            ]
-        );
+        $user = User::firstOrNew([
+            'id' => $values['id'] ?? null
+        ]);
 
         $user->fill([
+            'name' => $values['nome'],
+            'middle_name' => $values['sobrenome'],
             'password' => $values['password'] ?? $user->password,
             'email' => $values['email'] ?? $user->email
         ]);
 
         $user->save();
-        if ($values['avatar']) {
+        if (isset($values['avatar'])) {
             $user->avatar = $this->avatarPath($user->id, $values['avatar']);
             $user->save();
         }

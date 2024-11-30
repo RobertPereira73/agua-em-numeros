@@ -1,5 +1,5 @@
 async function checkPassword(input) {
-    let password = input.value ?? '';
+    let password = input.value;
 
     let data = formData();
     data.append('password', password);
@@ -8,5 +8,10 @@ async function checkPassword(input) {
     let response = await sendData('/meu-perfil/check-password', config);
     if (response) return;
 
-    console.log(response);
+    clearErrors();
+    showErrors({
+        oldPassword: [
+            'Senha incorreta'
+        ]
+    });
 }

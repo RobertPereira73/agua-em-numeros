@@ -37,6 +37,6 @@ class LoginController extends Controller
         $values = $this->request->all();
         $this->loginService->authenticateCred($values['email'], $values['password']);
 
-        return response(true);
+        return response(['message' => true]);
     }
 }
