@@ -13,8 +13,8 @@
         <div class="w-100 containerMenu d-flex justify-content-center">
             <ul class="w-100 p-0 m-0 menu" type="none">
                 @foreach ($menus as $menu)
-                    <li id="{{ $menu->getMenuId() }}" class="p-3 mb-3 {{ $menu->getMenuId() == $actualMenu->getMenuId() ? 'active' : '' }}">
-                        <a href="#" class="decorationNone roboto colorWhite">
+                    <li id="{{ $menu->getMenuId() }}" class="p-3 mb-3 {{ $menu->getMenuId() == $actualMenu?->getMenuId() ? 'active' : '' }}">
+                        <a href="{{ route($menu->getRoute()) }}" class="decorationNone roboto colorWhite">
                             {!! $menu->getMenuIcon() !!}
                             <span>{{ $menu->getMenuName() }}</span>
                         </a>

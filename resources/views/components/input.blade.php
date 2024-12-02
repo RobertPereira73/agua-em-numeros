@@ -1,6 +1,6 @@
 <input
     name="{{ $name }}"
-    placeholder="{{ $placeHolder }}"
+    placeholder="{{ $placeholder }}"
     type="{{ $type }}"
     value="{{ $value }}"
     class="form-control defaultInput roboto colorWhite {{ $class }}"

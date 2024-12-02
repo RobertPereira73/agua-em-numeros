@@ -5,6 +5,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RepositoriesController;
+use App\Http\Controllers\UsersController;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\NotLogged;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +43,15 @@ Route::middleware([NotLogged::class])->group(function () {
 Route::middleware([Authenticate::class])->group(function () {
     Route::prefix('/dashboard')->name('dashboard')->group(function () {
         Route::get('/', [DashboardController::class, 'index']);
+    });
+
+    Route::prefix('/users')->name('users')->group(function () {
+        Route::get('/', [UsersController::class, 'index']);
+    });
+
+    Route::prefix('/repositories')->name('repositories')->group(function () {
+        Route::get('/', [RepositoriesController::class, 'index']);
+        Route::post('/', [RepositoriesController::class, 'actors']);
     });
 
     Route::prefix('/meu-perfil')->name('account')->group(function () {

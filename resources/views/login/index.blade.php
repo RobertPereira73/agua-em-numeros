@@ -31,11 +31,11 @@
             </div>
 
             <x-container-input :name="'email'">
-                <x-input name="email" placeHolder="Email" type="email"/>
+                <x-input name="email" placeholder="Email" type="email"/>
             </x-container-input>
 
             <x-container-input :name="'password'">
-                <x-input name="password" placeHolder="Senha" type="password"/>
+                <x-input name="password" placeholder="Senha" type="password"/>
             </x-container-input>
 
             <x-button>

@@ -25,23 +25,23 @@
             <x-select-avatar :class="'mb-5'"/>
 
             <x-container-input :name="'nome'">
-                <x-input name="nome" placeHolder="Nome" type="text"/>
+                <x-input name="nome" placeholder="Nome" type="text"/>
             </x-container-input>
 
             <x-container-input :name="'sobrenome'">
-                <x-input name="sobrenome" placeHolder="Sobrenome" type="text"/>
+                <x-input name="sobrenome" placeholder="Sobrenome" type="text"/>
             </x-container-input>
 
             <x-container-input :name="'email'">
-                <x-input name="email" placeHolder="Email" type="email"/>
+                <x-input name="email" placeholder="Email" type="email"/>
             </x-container-input>
 
             <x-container-input :name="'password'">
-                <x-input name="password" placeHolder="Senha" type="password"/>
+                <x-input name="password" placeholder="Senha" type="password"/>
             </x-container-input>
 
             <x-container-input :name="'password_confirmation'">
-                <x-input name="password_confirmation" placeHolder="Confirme a senha" type="password"/>
+                <x-input name="password_confirmation" placeholder="Confirme a senha" type="password"/>
             </x-container-input>
 
             <x-button>

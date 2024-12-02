@@ -2,18 +2,18 @@
 
 namespace App\View\Components;
 
-use App\Http\Class\Menu;
 use Closure;
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
 
-class Header extends Component
+class SearchButton extends Component
 {
     /**
      * Create a new component instance.
      */
     public function __construct(
-        public ?Menu $actualMenu=null
+        public string $name,
+        public ?string $placeholder=''
     )
     {
         //
@@ -24,7 +24,6 @@ class Header extends Component
      */
     public function render(): View|Closure|string
     {
-        $userName = auth()->user()->name;
-        return view('components.header', ['userName' => $userName]);
+        return view('components.search-button');
     }
 }
