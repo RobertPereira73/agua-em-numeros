@@ -10,5 +10,5 @@ async function send(event) {
         return;
     }
 
-    window.location = '/dashboard';
+    window.location.reload();
 }

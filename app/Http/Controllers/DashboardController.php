@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function __construct(
-        private Request $request
+        private Request $request,
+        private string $menuId = 'dashboard'
     )
     {}
 
     public function index()
     {
-        return view('dashboard.index');
+        return view('dashboard.index', ['menuId' => $this->menuId]);
     }
 }

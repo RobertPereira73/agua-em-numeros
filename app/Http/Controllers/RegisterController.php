@@ -47,7 +47,7 @@ class RegisterController extends Controller
 
         $user = $this->registerService->register($this->request->all());
         $this->loginService->login($user);
-
-        return response(true);
+        
+        return response(['message' => true]);
     }
 }

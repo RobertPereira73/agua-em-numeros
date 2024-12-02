@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\NotLogged;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,15 +25,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('login')->name('login')->group(function () {
-    Route::get('/', [LoginController::class, 'index']);
-    Route::post('/', [LoginController::class, 'login']);
+Route::middleware([NotLogged::class])->group(function () {
+    Route::prefix('login')->name('login')->group(function () {
+        Route::get('/', [LoginController::class, 'index']);
+        Route::post('/', [LoginController::class, 'login']);
+    });
+    
+    Route::prefix('register')->name('register')->group(function () {
+        Route::get('/', [RegisterController::class, 'index']);
+        Route::post('/', [RegisterController::class, 'register']);
+    });
 });
 
-Route::prefix('register')->name('register')->group(function () {
-    Route::get('/', [RegisterController::class, 'index']);
-    Route::post('/', [RegisterController::class, 'register']);
-});
 
 Route::middleware([Authenticate::class])->group(function () {
     Route::prefix('/dashboard')->name('dashboard')->group(function () {

@@ -23,13 +23,21 @@
     <body style="
         background-color: var(--primary-color-darker)"
     >
-        @auth
-            <x-header/>
-        @endauth
+        <div class="h-100 d-flex" style="position: relative">
+            <x-sidebar :menuId="$menuId ?? null"/>
 
-        <div id="app" class="container">
-            @yield('content')
+            <div class="w-75 h-100">
+                @auth
+                    <x-header/>
+                @endauth
+        
+                <div class="w-100 h-100 d-flex">
+        
+                    <div id="app" class="container">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
         </div>
-    
     </body>
 </html>
