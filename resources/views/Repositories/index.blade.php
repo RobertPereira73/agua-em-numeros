@@ -10,7 +10,7 @@
     <div class="row mb-5">
         <div class="col-12">
             <x-form route="repositories" class="w-100 bgNone p-0">
-                <x-search-button :name="'search'" :placeholder="'Busque pelo usuário'"/>
+                <x-search-button :name="'search'" :placeholder="'Busque pelo repositório'"/>
             </x-form>
         </div>
     </div>
