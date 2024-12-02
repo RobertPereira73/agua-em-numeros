@@ -1,10 +1,4 @@
-<div class="w-100 mb-5 py-3 px-5 d-flex align-items-center justify-content-between">
-    @if ($actualMenu)
-        <div class="flex">
-            <h2 class="colorWhite roboto">{{ $actualMenu->getMenuName() }}</h2>
-        </div>
-    @endif
-
+<div class="w-100 mb-5 py-3 px-5 d-flex align-items-center justify-content-end">
     <div class="d-flex align-items-center justify-content-end">
         <span class="colorWhite roboto me-2">Olá, {{ $userName }}</span>
         <div class="btn-group">

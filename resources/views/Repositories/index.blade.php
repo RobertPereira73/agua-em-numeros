@@ -7,6 +7,25 @@
 @endsection
 
 @section('content')
+    <div class="row justify-content-between">
+        <div class="col-6">
+            <h2 class="colorWhite roboto">
+                Repositórios
+            </h2>
+        </div>
+
+        <div class="col-2">
+            <x-button type="button" class="d-flex align-items-center justify-content-center bg-primary"> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="me-2 bi bi-plus-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                </svg>
+                <span>Criar repositório</span>
+            </x-button>
+        </div>
+    </div>
+
+    <hr class="mt-3 mb-5" style="background: white">
+
     <div class="row mb-5">
         <div class="col-12">
             <x-form route="repositories" class="w-100 bgNone p-0">
@@ -21,11 +40,11 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="colorWhite roboto bold font12">Usuario</th>
-                            <th class="colorWhite roboto bold font12">Repositórios</th>
-                            <th class="colorWhite roboto bold font12">Commits</th>
-                            <th class="colorWhite roboto bold font12">Comments</th>
-                            <th class="colorWhite roboto bold font12">Ações</th>
+                            <th class="colorWhite roboto bold">Usuario</th>
+                            <th class="colorWhite roboto bold">Repositórios</th>
+                            <th class="colorWhite roboto bold">Commits</th>
+                            <th class="colorWhite roboto bold">Comments</th>
+                            <th class="colorWhite roboto bold">Ações</th>
                         </tr>
                     </thead>
     

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->bigInteger('actor_id')->unsigned();
             $table->bigInteger('api_id');
             $table->string('name');
+            $table->text('description')->nullable();
             $table->string('repo_url');
             $table->timestamps();
 
