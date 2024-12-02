@@ -21,27 +21,27 @@
             <x-select-avatar :class="'mb-5'"/>
 
             <x-container-input :name="'nome'">
-                <x-input name="nome" placeHolder="Nome" type="text" :value="$user->name"/>
+                <x-input name="nome" placeholder="Nome" type="text" :value="$user->name"/>
             </x-container-input>
 
             <x-container-input :name="'sobrenome'">
-                <x-input name="sobrenome" placeHolder="Sobrenome" type="text" :value="$user->middle_name"/>
+                <x-input name="sobrenome" placeholder="Sobrenome" type="text" :value="$user->middle_name"/>
             </x-container-input>
 
             <x-container-input :name="'email'">
-                <x-input name="email" placeHolder="Email" type="email"  :events="'disabled'" :value="$user->email"/>
+                <x-input name="email" placeholder="Email" type="email"  :events="'disabled'" :value="$user->email"/>
             </x-container-input>
 
             <x-container-input :name="'oldPassword'">
-                <x-input name="oldPassword" placeHolder="Senha atual" :type="'password'" :events="'onblur=' . 'checkPassword(this)'"/>
+                <x-input name="oldPassword" placeholder="Senha atual" :type="'password'" :events="'onblur=' . 'checkPassword(this)'"/>
             </x-container-input>
 
             <x-container-input :name="'password'">
-                <x-input name="password" placeHolder="Nova senha" type="password"/>
+                <x-input name="password" placeholder="Nova senha" type="password"/>
             </x-container-input>
 
             <x-container-input :name="'password_confirmation'">
-                <x-input name="password_confirmation" placeHolder="Confirme a senha" type="password"/>
+                <x-input name="password_confirmation" placeholder="Confirme a senha" type="password"/>
             </x-container-input>
 
             <x-button>

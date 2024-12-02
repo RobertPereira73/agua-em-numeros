@@ -10,6 +10,15 @@
 @endsection
 
 @section('content')
+    <div class="row mb-5 justify-content-between">
+        <div class="col-6">
+            <h2 class="colorWhite roboto">
+                Dashboard
+            </h2>
+            <p class="roboto colorWhite">Aqui você vê as interações com os repositórios</p>
+        </div>
+    </div>
+
     <div class="row h-auto">
         <div class="col-6 d-flex justify-content-between flex-wrap">
             <x-card-countable/>
