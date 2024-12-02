@@ -9,7 +9,7 @@
 
 @section('content')
     <div class="vh-100 d-flex justify-content-center align-items-center">
-        <x-form route="login" class="w-35">
+        <x-form route="login" class="w-25">
             @csrf
 
             <div class="mb-5 d-flex flex-column justify-content-center align-items-center">

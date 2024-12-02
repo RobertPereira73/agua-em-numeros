@@ -9,10 +9,10 @@
 
 @section('content')
     <div class="vh-100 d-flex justify-content-center align-items-center">
-        <x-form route="register" class="w-35">
+        <x-form route="register" class="w-25">
             <div class="mb-5 d-flex flex-column justify-content-center align-items-center">
                 <h3 class="my-3 bold roboto colorWhite">
-                    Cadastra-se
+                    Cadastre-se
                 </h3>
                 <p class="mb-0 roboto colorWhite">
                     Já possui uma conta? 

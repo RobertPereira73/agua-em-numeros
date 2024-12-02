@@ -28,7 +28,7 @@
                 <x-sidebar :actualMenu="$actualMenu ?? null"/>
             @endauth
 
-            <div class="h-100" style="width: 85%">
+            <div class="h-100" @auth style="width: 85%" @else style="width: 100%" @endauth>
                 @auth
                     <x-header :actualMenu="$actualMenu ?? null"/>
                 @endauth
