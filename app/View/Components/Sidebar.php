@@ -13,7 +13,7 @@ class Sidebar extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public ?string $menuId = null
+        public ?Menu $actualMenu = null
     )
     {
         //

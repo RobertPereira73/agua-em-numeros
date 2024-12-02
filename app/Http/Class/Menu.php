@@ -7,7 +7,7 @@ class Menu
     public function __construct(
         private string $menuName,
         private string $menuId,
-        private string $menuIcon
+        private string $menuIcon = ''
     )
     {}
 

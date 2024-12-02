@@ -24,16 +24,18 @@
         background-color: var(--primary-color-darker)"
     >
         <div class="h-100 d-flex" style="position: relative">
-            <x-sidebar :menuId="$menuId ?? null"/>
+            @auth
+                <x-sidebar :actualMenu="$actualMenu ?? null"/>
+            @endauth
 
-            <div class="w-75 h-100">
+            <div class="h-100" style="width: 85%">
                 @auth
-                    <x-header/>
+                    <x-header :actualMenu="$actualMenu ?? null"/>
                 @endauth
         
                 <div class="w-100 h-100 d-flex">
         
-                    <div id="app" class="container">
+                    <div id="app" class="w-100 mx-5 mx-0 px-0">
                         @yield('content')
                     </div>
                 </div>
