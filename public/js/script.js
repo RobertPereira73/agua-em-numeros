@@ -2,7 +2,7 @@ async function sendData(url, config) {
     try {
         let request = await fetch(url, config);
         let response = await request.json();
-    
+        
         return returnResponse(response);
     } catch (error) {
         console.log(error);

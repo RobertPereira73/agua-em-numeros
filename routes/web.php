@@ -43,6 +43,7 @@ Route::middleware([NotLogged::class])->group(function () {
 Route::middleware([Authenticate::class])->group(function () {
     Route::prefix('/dashboard')->name('dashboard')->group(function () {
         Route::get('/', [DashboardController::class, 'index']);
+        Route::post('/counts', [DashboardController::class, 'counts'])->name('.counts');
     });
 
     Route::prefix('/users')->name('users')->group(function () {

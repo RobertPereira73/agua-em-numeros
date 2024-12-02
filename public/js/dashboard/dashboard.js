@@ -1,52 +1,21 @@
-function loadChart() {
-    let chartContainer = document.querySelector('#pizzaChart');
-    let chart = echarts.init(chartContainer);
-    option = {
-        tooltip: {
-          trigger: 'item'
-        },
-        legend: {
-          top: '5%',
-          left: 'center'
-        },
-        series: [
-          {
-            name: 'Access From',
-            type: 'pie',
-            radius: ['40%', '70%'],
-            avoidLabelOverlap: false,
-            padAngle: 5,
-            itemStyle: {
-              borderRadius: 10
-            },
-            label: {
-              show: false,
-              position: 'center'
-            },
-            emphasis: {
-              label: {
-                show: false,
-                fontSize: 40,
-                fontWeight: 'bold'
-              }
-            },
-            labelLine: {
-              show: false
-            },
-            data: [
-              { value: 1048, name: 'Search Engine' },
-              { value: 735, name: 'Direct' },
-              { value: 580, name: 'Email' },
-              { value: 484, name: 'Union Ads' },
-              { value: 300, name: 'Video Ads' }
-            ]
-          }
-        ]
-    };
+function loadCounts() {
+  let counts = document.querySelectorAll('.cardCountable');
+  counts.forEach(async(count) => {
+    let type = count.getAttribute('data-type');
+    let form = formData();
+    form.append('type', type);
 
-    // Display the chart using the configuration items and data just specified.
-    chart.setOption(option);
+    let config = configObj('POST', form);
+    let response = await sendData('/dashboard/counts', config) 
+
+    setCount(count, response);
+  })
 }
+
+function setCount(element, total) {
+  element.querySelector('.count').innerHTML = `<span class="colorWhite roboto">${total}</span>`;
+}
+
 
 function loadChart2() {
     var chartDom = document.getElementById('main');
@@ -73,6 +42,7 @@ function loadChart2() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    loadChart();
+    // loadChart();
+    loadCounts();
     loadChart2();
 })

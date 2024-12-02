@@ -20,16 +20,11 @@
     </div>
 
     <div class="row h-auto">
-        <div class="col-6 d-flex justify-content-between flex-wrap">
-            <x-card-countable/>
-            <x-card-countable/>
-            <x-card-countable/>
-            <x-card-countable/>
-        </div>
-
-        <div class="col-6 colorWhite">
-            <div id="main" class="w-100 h-100 bgPrimaryMd borderRadius">
-            </div>
+        <div class="col-12 d-flex justify-content-between flex-wrap">
+            <x-card-countable :idCount="'users'" :title="'Usuários'"/>
+            <x-card-countable :idCount="'repositories'" :title="'Repositórios'"/>
+            <x-card-countable :idCount="'commits'" :title="'Commits'"/>
+            <x-card-countable :idCount="'issues'" :title="'Discussões'"/>
         </div>
     </div>
 

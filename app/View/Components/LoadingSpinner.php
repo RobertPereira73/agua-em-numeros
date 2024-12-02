@@ -6,16 +6,13 @@ use Closure;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
-class CardCountable extends Component
+class LoadingSpinner extends Component
 {
     /**
      * Create a new component instance.
      */
     public function __construct(
-        public string $idCount,
-        public string $title,
-        public string $class = '',
-        public string $events=''
+        public string $size='md'
     )
     {
         //
@@ -26,6 +23,6 @@ class CardCountable extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.card-countable');
+        return view('components.loading-spinner');
     }
 }
