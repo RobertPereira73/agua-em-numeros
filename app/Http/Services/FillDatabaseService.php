@@ -71,11 +71,16 @@ class FillDatabaseService
     {
         $repo = Repository::repoByApiId($data['id']);
         if (!$repo) {
+            $collect = collect([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+            $month = $collect->random();
+            $createdAt = "2015-{$month}-01";
+
             $repo = Repository::create([
                 'actor_id' => $actorId,
                 'api_id' => $data['id'],
                 'name' => $data['name'],
-                'repo_url' => $data['url']
+                'repo_url' => $data['url'],
+                'created_at' => $createdAt
             ]);
         }
 

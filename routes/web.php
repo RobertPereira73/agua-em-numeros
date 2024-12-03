@@ -44,6 +44,9 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::prefix('/dashboard')->name('dashboard')->group(function () {
         Route::get('/', [DashboardController::class, 'index']);
         Route::post('/counts', [DashboardController::class, 'counts'])->name('.counts');
+        Route::post('/line-chart', [DashboardController::class, 'lineChart'])->name('.lineChart');
+        Route::post('/pie-chart', [DashboardController::class, 'pieChart'])->name('.pieChart');
+        Route::post('/bar-chart', [DashboardController::class, 'barChart'])->name('.barChart');
     });
 
     Route::prefix('/users')->name('users')->group(function () {

@@ -16,33 +16,147 @@ function setCount(element, total) {
   element.querySelector('.count').innerHTML = `<span class="colorWhite roboto">${total}</span>`;
 }
 
+async function loadLineChart() {
+  let config = configObj('POST', formData());
+  let response = await sendData('/dashboard/line-chart', config);
+  let chartDom = document.querySelector('#lineChart');
+  let myChart = echarts.init(chartDom);
 
-function loadChart2() {
-    var chartDom = document.getElementById('main');
-    var myChart = echarts.init(chartDom);
-    var option;
+  let option = {
+    textStyle: {
+        color: '#ffffff'
+    },
+    title: {
+      text: 'Repositórios criados por mês',
+      textStyle: {
+        color: '#ffffff'
+      }
+    },
+    tooltip: {
+      trigger: 'axis',
+      textStyle: {
+          color: '#000000'
+      }
+    },
+    legend: {
+      data: ['Repositórios'],
+      textStyle: {
+          color: '#ffffff'
+      }
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis: {
+      type: 'category',
+      boundaryGap: false,
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        name: 'Repositórios',
+        type: 'line',
+        stack: 'Total',
+        data: response
+      },
+    ]
+  };
 
-    option = {
-        xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  myChart.setOption(option);
+}
+
+async function loadPieChart() {
+  let config = configObj('POST', formData());
+  let response = await sendData('/dashboard/pie-chart', config);
+
+  let chartDom = document.querySelector('#pizzaChart');
+  let myChart = echarts.init(chartDom);
+
+  let option = {
+    title: {
+      text: 'Percentual de discussões',
+      textStyle: {
+        color: '#ffffff'
+      }
+    },
+    tooltip: {
+      trigger: 'item',
+      textStyle: {
+          color: '#000000'
+      }
+    },
+    legend: {
+      top: '5%',
+      left: 'center',
+      textStyle: {
+          color: '#ffffff'
+      }
+    },
+    series: [
+      {
+        name: 'Status discussões',
+        type: 'pie',
+        radius: ['40%', '70%'],
+        avoidLabelOverlap: false,
+        padAngle: 5,
+        itemStyle: {
+          borderRadius: 10
         },
-        yAxis: {
-            type: 'value'
+        label: {
+          show: false,
+          position: 'center'
         },
-        series: [
-            {
-            data: [120, 200, 150, 80, 70, 110, 130],
-            type: 'bar'
-            }
-        ]
-    };
+        labelLine: {
+          show: false
+        },
+        data: response
+      }
+    ]
+  };
 
-    myChart.setOption(option);
+  myChart.setOption(option);
+}
+
+async function loadBarChart() {
+  let config = configObj('POST', formData());
+  let response = await sendData('/dashboard/bar-chart', config);
+  let chartDom = document.querySelector('#barChart');
+  let myChart = echarts.init(chartDom);
+
+  let option = {
+    title: {
+      text: 'Top 10 repositórios',
+      textStyle: {
+        color: '#ffffff'
+      }
+    },
+    legend: {
+      textStyle: {
+          color: '#ffffff'
+      }
+    },
+    tooltip: {},
+    dataset: {
+      dimensions: ['Repositório', 'Total commits'],
+      source: response
+    },
+    xAxis: { type: 'category' },
+    yAxis: {},
+    series: [{ type: 'bar' }]
+  };
+
+  myChart.setOption(option);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // loadChart();
     loadCounts();
-    loadChart2();
+    loadLineChart();
+    loadPieChart();
+    loadBarChart();
 })

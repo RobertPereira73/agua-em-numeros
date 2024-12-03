@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="row h-auto">
+    <div class="row mb-4 h-auto">
         <div class="col-12 d-flex justify-content-between flex-wrap">
             <x-card-countable :idCount="'users'" :title="'Usuários'"/>
             <x-card-countable :idCount="'repositories'" :title="'Repositórios'"/>
@@ -28,43 +28,24 @@
         </div>
     </div>
 
-    <div class="row mt-4">
-        <div class="col-7">
-            <div class="w-100 bgPrimaryMd p-3 tableUsers">
-                <p class="colorWhite roboto">Top usuários</p>
-    
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <td class="colorWhite roboto bold font12">Usuario</td>
-                            <td class="colorWhite roboto bold font12">Repositórios</td>
-                            <td class="colorWhite roboto bold font12">Commits</td>
-                            <td class="colorWhite roboto bold font12">Comments</td>
-                        </tr>
-                    </thead>
-    
-                    <tbody>
-                        <tr>
-                            <td class="colorWhite roboto bold font12">Teste</td>
-                            <td class="colorWhite roboto bold font12">1</td>
-                            <td class="colorWhite roboto bold font12">1</td>
-                            <td class="colorWhite roboto bold font12">1</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="colorWhite roboto bold font12">Teste 2</td>
-                            <td class="colorWhite roboto bold font12">2</td>
-                            <td class="colorWhite roboto bold font12">2</td>
-                            <td class="colorWhite roboto bold font12">2</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="row mb-4">
+        <div class="col-8">
+            <div id="lineChart" class="chart px-3 py-2 w-100 bgPrimaryMd borderRadius">
+                <x-loading-spinner/>
             </div>
         </div>
 
-        <div class="col-5">
-            <div class="w-100 h-100 bgPrimaryMd p-3 borderRadius">
-                <div id="pizzaChart" class="w-100 h-100"></div>
+        <div class="col-4">
+            <div id="pizzaChart" class="chart px-3 py-2 w-100 bgPrimaryMd borderRadius">
+                <x-loading-spinner/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-12">
+            <div id="barChart" class="chart px-3 py-2 w-100 bgPrimaryMd borderRadius">
+                <x-loading-spinner/>
             </div>
         </div>
     </div>
