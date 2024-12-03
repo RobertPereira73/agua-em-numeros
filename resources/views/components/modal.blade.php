@@ -1,7 +1,7 @@
 <div class="modal fade" id="{{ $id }}" tabindex="-1" aria-labelledby="{{ $id }}Label" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="{{ route($route) }}" method="{{ $method }}" class="w-100">
-            <div class="modal-content bgPrimaryLt">
+        <x-form :route="$route" class="w-100 bgNone">
+            <div class="modal-content bgPrimaryMd">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5 colorWhite" id="exampleModalLabel">{{ $title }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -14,9 +14,6 @@
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
             </div>
-        </form>
+        </x-form>
     </div>
 </div>
-
-<style>
-</style>
