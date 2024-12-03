@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <div class="vh-100 d-flex justify-content-center align-items-center">
+    <div class="vh-100 d-flex justify-content-center">
         <x-form route="account" class="w-35">
             <input name="id" type="hidden" value="{{ $user?->id }}">
 
