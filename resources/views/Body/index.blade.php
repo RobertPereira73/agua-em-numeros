@@ -28,7 +28,7 @@
                 <x-sidebar :actualMenu="$actualMenu ?? null"/>
             @endauth
 
-            <div class="h-100" @auth style="width: 85%" @else style="width: 100%" @endauth>
+            <div class="h-100" @auth style="width: 85%; overflow-y: scroll;" @else style="width: 100%" @endauth>
                 @auth
                     <x-header :actualMenu="$actualMenu ?? null"/>
                 @endauth
