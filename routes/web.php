@@ -55,7 +55,7 @@ Route::middleware([Authenticate::class])->group(function () {
 
     Route::prefix('/repositories')->name('repositories')->group(function () {
         Route::get('/', [RepositoriesController::class, 'index']);
-        Route::post('/', [RepositoriesController::class, 'actors']);
+        Route::post('/', [RepositoriesController::class, 'store']);
     });
 
     Route::prefix('/meu-perfil')->name('account')->group(function () {

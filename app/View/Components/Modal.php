@@ -13,7 +13,9 @@ class Modal extends Component
      */
     public function __construct(
         public string $id,
-        public string $title
+        public string $title,
+        public string $route='#',
+        public string $method='POST'
     )
     {
         //
