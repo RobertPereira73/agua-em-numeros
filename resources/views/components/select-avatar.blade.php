@@ -1,5 +1,5 @@
 <div class="d-flex flex-column justify-content-center align-items-center {{ $class }}">
-    <x-button :class="'p-0 bgNone buttonEdit'" :type="'button'" :events="'onclick=' . 'openInput(this)'">
+    <x-button :class="'p-0 bgNone buttonEdit'" :type="'button'" onclick="openInput(this)">
         <input type="file" class="hidden" 
             name="avatar"
             accept="image/*"

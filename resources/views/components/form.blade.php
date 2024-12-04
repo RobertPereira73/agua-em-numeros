@@ -1,6 +1,7 @@
 <form action="{{ route($route) }}" method="{{ $method }}" 
     class="h-auto defaultForm {{ $class }}"
     onsubmit="send(event)"
+    {{ $attributes->merge() }}
 >
     {{ $slot }}
 </form>

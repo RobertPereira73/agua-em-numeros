@@ -9,7 +9,7 @@
 
 @section('content')
     <div class="vh-100 d-flex justify-content-center">
-        <x-form route="account" class="w-35">
+        <x-form route="account" class="w-35" style="max-height: 90vh">
             <input name="id" type="hidden" value="{{ $user?->id }}">
 
             <div class="mb-5 d-flex flex-column justify-content-center align-items-center">
@@ -33,7 +33,7 @@
             </x-container-input>
 
             <x-container-input :name="'oldPassword'">
-                <x-input name="oldPassword" placeholder="Senha atual" :type="'password'" :events="'onblur=' . 'checkPassword(this)'"/>
+                <x-input name="oldPassword" placeholder="Senha atual" :type="'password'" onblur="checkPassword(this)"/>
             </x-container-input>
 
             <x-container-input :name="'password'">
