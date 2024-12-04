@@ -1,7 +1,7 @@
 <div class="sidebar d-flex flex-column justify-content-between py-3 px-5 h-100">
     <div class="w-100">
         <div class="w-100 d-flex justify-content-center align-items-center">
-            <img src="{{ asset('images/logo-3.png') }}" alt=""
+            <img src="{{ asset('images/logo.png') }}" alt=""
                 style="
                     width: 25%;
                     max-height: 20vh;

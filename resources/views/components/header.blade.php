@@ -3,7 +3,11 @@
         <span class="colorWhite roboto me-2">Olá, {{ $userName }}</span>
         <div class="btn-group">
             <button type="button" class="p-0 btn dropdown-toggle dropdown-toggle-split buttonActions" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="{{ asset(auth()->user()->avatar) }}" alt=""
+                <img src="{{ 
+                        asset(
+                            auth()->user()->avatar ?? '/images/avatar/default.png'
+                        ) 
+                    }}"
                     style="
                         width: 50px;
                         border-radius: 50%;
