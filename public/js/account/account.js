@@ -6,9 +6,10 @@ async function checkPassword(input) {
 
     let config = configObj('POST', data);
     let response = await sendData('/meu-perfil/check-password', config);
+    clearErrors();
+    
     if (response) return;
 
-    clearErrors();
     showErrors({
         oldPassword: [
             'Senha incorreta'

@@ -4,6 +4,7 @@
     type="{{ $type }}"
     value="{{ $value }}"
     class="form-control defaultInput roboto colorWhite {{ $class }}"
+    {{ $events }}
     {{ $attributes->merge() }}
 >
 
