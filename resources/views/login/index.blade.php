@@ -13,7 +13,7 @@
             @csrf
 
             <div class="mb-5 d-flex flex-column justify-content-center align-items-center">
-                <img src="{{ asset('images/logo-3.png') }}" alt=""
+                <img src="{{ asset('images/logo.png') }}" alt=""
                     class="w-50"
                     style="
                         max-height: 20vh;

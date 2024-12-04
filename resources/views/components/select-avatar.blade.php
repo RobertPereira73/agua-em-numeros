@@ -9,7 +9,7 @@
         <img id="avatarImg" class="w-100 h-100" 
             src="{{ 
                 asset(
-                    auth()?->user()?->avatar ?? 'images/avatar/default-2.png'
+                    auth()?->user()?->avatar ?? 'images/avatar/default.png'
                 ) 
             }}"
         >
