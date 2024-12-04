@@ -71,16 +71,12 @@ class FillDatabaseService
     {
         $repo = Repository::repoByApiId($data['id']);
         if (!$repo) {
-            $collect = collect([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
-            $month = $collect->random();
-            $createdAt = "2015-{$month}-01";
-
             $repo = Repository::create([
                 'actor_id' => $actorId,
                 'api_id' => $data['id'],
                 'name' => $data['name'],
                 'repo_url' => $data['url'],
-                'created_at' => $createdAt
+                'created_at' => $this->randomData()
             ]);
         }
 
@@ -93,7 +89,8 @@ class FillDatabaseService
         if (!$branch) {
             $branch = Branch::create([
                 'repository_id' => $repositoryId,
-                'name' => $data['ref']
+                'name' => $data['ref'],
+                'created_at' => $this->randomData()
             ]);
         }
 
@@ -109,7 +106,8 @@ class FillDatabaseService
                 'actor_id' => $actorId,
                 'title' => $data['title'],
                 'api_id' => $data['id'],
-                'status' => $data['state']
+                'status' => $data['state'],
+                'created_at' => $this->randomData()
             ]);
         } else {
             $issue->status = $data['state'];
@@ -128,7 +126,8 @@ class FillDatabaseService
                 'branch_id' => $branchId,
                 'actor_id' => $actorId,
                 'sha' => $data['sha'],
-                'message' => $data['message']
+                'message' => $data['message'],
+                'created_at' => $this->randomData()
             ]);
         }
 
@@ -160,7 +159,8 @@ class FillDatabaseService
                 'repository_id' => $repositoryId,
                 'actor_id' => $actorId,
                 'api_id' => $data['id'],
-                'title' => $data['title']
+                'title' => $data['title'],
+                'created_at' => $this->randomData()
             ]);
         }
 
@@ -180,5 +180,13 @@ class FillDatabaseService
         }
 
         return $event;
+    }
+
+    public function randomData() : string
+    {
+        $collect = collect([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+        $month = $collect->random();
+        
+        return "2015-{$month}-01";
     }
 }

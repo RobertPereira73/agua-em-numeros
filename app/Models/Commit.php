@@ -17,7 +17,8 @@ class Commit extends Model
         'branch_id',
         'actor_id',
         'sha',
-        'message'
+        'message',
+        'created_at'
     ];
 
     public function scopeSha(Builder $query, string $sha) : Builder

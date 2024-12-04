@@ -14,7 +14,8 @@ class Branch extends Model
 
     protected $fillable = [
         'repository_id',
-        'name'
+        'name',
+        'created_at'
     ];
 
     public function scopeRepositoryId(Builder $query, int $repositoryId) : Builder

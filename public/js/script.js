@@ -48,7 +48,15 @@ function createSpanError(message) {
 }
 
 function containerError(index) {
-    return document.querySelector(`#${index}Errors`);
+    return element(`#${index}Errors`);
+}
+
+function element(selector, element=null) {
+    if (element) {
+        return element.querySelector(selector);
+    }
+
+    return document.querySelector(selector);
 }
 
 function configObj(method, body={}) {
@@ -70,4 +78,20 @@ function metaToken() {
 
 function formData() {
     return new FormData();
+}
+
+function clearInputs(form) {
+    form.querySelectorAll('input, textarea').forEach(item => item.value = null);
+    form.querySelectorAll('select').forEach(item => item.selectedIndex = 0);
+}
+
+function fillInputs(obj, form) {
+    for (let index in obj) {
+        let input = element(`[name="${index}"]`, form);
+        if (!input) {
+            continue;
+        }
+
+        input.value = obj[index];
+    }
 }

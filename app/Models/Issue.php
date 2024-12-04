@@ -17,7 +17,8 @@ class Issue extends Model
         'actor_id',
         'api_id',
         'title',
-        'status'
+        'status',
+        'created_at'
     ];
 
     public function scopeApiId(Builder $query, int $apiId) : Builder

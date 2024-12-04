@@ -55,7 +55,9 @@ Route::middleware([Authenticate::class])->group(function () {
 
     Route::prefix('/repositories')->name('repositories')->group(function () {
         Route::get('/', [RepositoriesController::class, 'index']);
-        Route::post('/', [RepositoriesController::class, 'store']);
+        Route::post('/search', [RepositoriesController::class, 'search'])->name('.search');
+        Route::post('/', [RepositoriesController::class, 'store'])->name('.store');
+        Route::delete('/delete-repository/{id}', [RepositoriesController::class, 'delete'])->name('.delete');
     });
 
     Route::prefix('/meu-perfil')->name('account')->group(function () {

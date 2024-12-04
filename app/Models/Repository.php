@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class Repository extends Model
 {
@@ -32,6 +34,11 @@ class Repository extends Model
         return $query->groupBy('repositories.id');
     }
 
+    public function actor() : Relation
+    {
+        return $this->belongsTo(Actor::class, 'actor_id', 'id');
+    }
+
     public static function repoByApiId(int $apiId) : ?Repository
     {
         return self::apiId($apiId)
@@ -50,4 +57,14 @@ class Repository extends Model
             ->limit(10)
             ->get();
     } 
+
+    public static function repositoriesBySearchPaginated(?string $search=null) : LengthAwarePaginator
+    {
+        return self::with(['actor'])
+            ->when($search, function (Builder $query) use ($search) {
+                $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('description', 'like', "%{$search}%");
+            })
+            ->paginate(10);
+    }
 }

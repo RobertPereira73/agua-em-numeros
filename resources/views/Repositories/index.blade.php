@@ -29,7 +29,7 @@
 
     <div class="row mb-5">
         <div class="col-12">
-            <x-form route="repositories" class="w-100 bgNone p-0">
+            <x-form route="repositories.search" class="w-100 bgNone p-0">
                 <x-search-button :name="'search'" :placeholder="'Busque pelo repositório'"/>
             </x-form>
         </div>
@@ -37,45 +37,13 @@
 
     <div class="row">
         <div class="col-12">
-            <div class="w-100">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="colorWhite roboto bold">Usuario</th>
-                            <th class="colorWhite roboto bold">Repositórios</th>
-                            <th class="colorWhite roboto bold">Commits</th>
-                            <th class="colorWhite roboto bold">Comments</th>
-                            <th class="colorWhite roboto bold">Ações</th>
-                        </tr>
-                    </thead>
-    
-                    <tbody>
-                        <tr>
-                            <td class="colorWhite roboto bold font12">Teste</td>
-                            <td class="colorWhite roboto bold font12">1</td>
-                            <td class="colorWhite roboto bold font12">1</td>
-                            <td class="colorWhite roboto bold font12">1</td>
-                            <td>
-                                <div class="w-100 d-flex">
-
-                                </div>
-                            </td>
-                        </tr>
-    
-                        <tr>
-                            <td class="colorWhite roboto bold font12">Teste 2</td>
-                            <td class="colorWhite roboto bold font12">2</td>
-                            <td class="colorWhite roboto bold font12">2</td>
-                            <td class="colorWhite roboto bold font12">2</td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div id="repositories" class="w-100">
+                {!! $repositories !!}
             </div>
         </div>
     </div>
 
-    <x-modal :route="'repositories'" :id="'modalRepositories'" :title="'Salvar repositório'">
+    <x-modal :route="'repositories.store'" :id="'modalRepositories'" :title="'Salvar repositório'">
         <input type="hidden" name="id">
 
         <x-container-input :name="'name'">
@@ -86,7 +54,16 @@
             <x-input name="repo_url" placeholder="Url do repositório" type="text"/>
         </x-container-input>
 
-        <x-container-input :name="'descriptio'">
+        <x-container-input :name="'actor_id'">
+            <select name="actor_id" class="form-control defaultInput colorWhite roboto">
+                <option disabled selected>Selecione um usuário</option>
+                @foreach ($actors as $actor)
+                    <option value="{{ $actor->id }}">{{ $actor->login }}</option>
+                @endforeach
+            </select>
+        </x-container-input>
+
+        <x-container-input :name="'description'">
             <textarea name="description" class="form-control defaultInput colorWhite roboto"></textarea>
         </x-container-input>
     </x-modal>

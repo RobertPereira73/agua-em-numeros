@@ -16,7 +16,8 @@ class PullRequest extends Model
         'repository_id',
         'actor_id',
         'api_id',
-        'title'
+        'title',
+        'created_at'
     ];
 
     public function scopeApiId(Builder $query, int $apiId) : Builder
